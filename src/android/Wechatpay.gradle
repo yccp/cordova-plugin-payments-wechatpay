@@ -1,0 +1,6 @@
+repositories {
+}
+
+dependencies {
+    compile 'com.umeng.sdk:share-wechat:latest.integration'
+}

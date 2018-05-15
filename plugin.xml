@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin 
+  xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-payments-wechatpay" version="1.0.0">
+  <name>Wechatpay</name>
+  <description>Cordova Plugin for Umeng Share Wechat</description>
+  <license>ISC</license>
+  <keywords>cordova,umeng,social,share</keywords>
+  <preference name="APP_ID" />
+  <js-module src="www/Wechatpay.js" name="Wechatpay">
+    <clobbers target="Wechatpay" />
+  </js-module>
+  <platform name="ios">
+    <pods-config ios-min-version="9.0" use-frameworks="true">
+      <source url="https://github.com/CocoaPods/Specs.git"/>
+    </pods-config>
+    <pod name="WeChat_SDK" />
+    <config-file target="config.xml" parent="/*">
+      <feature name="Wechatpay">
+        <param name="ios-package" value="Wechatpay" />
+        <param name="onload" value="true" />
+      </feature>
+      <preference name="APP_ID" value="$APP_ID" />
+    </config-file>
+    <config-file target="*-Info.plist" parent="LSApplicationQueriesSchemes">
+      <array>
+        <string>weixin</string>
+        <string>wechat</string>
+      </array>
+    </config-file>
+    <config-file target="*-Info.plist" parent="CFBundleURLTypes">
+      <array>
+        <dict>
+          <key>CFBundleURLName</key>
+          <string>weixin</string>
+          <key>CFBundleURLSchemes</key>
+          <array>
+            <string>$APP_ID</string>
+          </array>
+        </dict>
+      </array>
+    </config-file>
+    <header-file src="src/ios/Wechatpay.h" />
+    <source-file src="src/ios/Wechatpay.m" />
+  </platform>
+  <platform name="android">
+    <hook type="after_plugin_add" src="scripts/android-install.js" />
+    <hook type="after_plugin_install" src="scripts/android-install.js" />
+    <hook type="before_plugin_rm" src="scripts/android-install.js" />
+    <hook type="before_plugin_uninstall" src="scripts/android-install.js" />
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="Wechatpay">
+        <param name="android-package" value="news.chen.yu.ionic.Wechatpay"/>
+        <param name="onload" value="true" />
+      </feature>
+      <preference name="APP_ID" value="$APP_ID" />
+    </config-file>
+    <config-file target="AndroidManifest.xml" parent="/manifest/application">
+      <activity android:name=".wxapi.WXPayEntryActivity" android:exported="true" android:launchMode="singleTop"/>
+    </config-file>
+    <framework src="src/android/Wechatpay.gradle" custom="true" type="gradleReference" />
+    <source-file src="src/android/Wechatpay.java" target-dir="src/news/chen/yu/ionic" />
+  </platform>
+</plugin>
