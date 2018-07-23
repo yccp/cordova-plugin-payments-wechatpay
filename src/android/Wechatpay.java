@@ -20,7 +20,7 @@ public class Wechatpay extends CordovaPlugin {
     @Override
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
         super.initialize(cordova, webView);
-        Wechatpay.appKey = preferences.getString("app_id", "");
+        Wechatpay.appKey = preferences.getString("payment_wechat_app_id", "");
         Log.d(TAG, "Init: " + Wechatpay.appKey);
         Wechatpay.wxAPI = WXAPIFactory.createWXAPI(cordova.getActivity(), Wechatpay.appKey, true);
         Wechatpay.wxAPI.registerApp(Wechatpay.appKey);

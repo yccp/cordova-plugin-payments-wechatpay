@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin 
-  xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-payments-wechatpay" version="1.0.0">
+  xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-payments-wechatpay" version="1.0.1">
   <name>Wechatpay</name>
   <description>Cordova Plugin for Umeng Share Wechat</description>
   <license>ISC</license>
   <keywords>cordova,umeng,social,share</keywords>
-  <preference name="APP_ID" />
+  <preference name="PAYMENT_WECHAT_APP_ID" />
   <js-module src="www/Wechatpay.js" name="Wechatpay">
     <clobbers target="Wechatpay" />
   </js-module>
@@ -19,7 +19,7 @@
         <param name="ios-package" value="Wechatpay" />
         <param name="onload" value="true" />
       </feature>
-      <preference name="APP_ID" value="$APP_ID" />
+      <preference name="PAYMENT_WECHAT_APP_ID" value="$PAYMENT_WECHAT_APP_ID" />
     </config-file>
     <config-file target="*-Info.plist" parent="LSApplicationQueriesSchemes">
       <array>
@@ -34,7 +34,7 @@
           <string>weixin</string>
           <key>CFBundleURLSchemes</key>
           <array>
-            <string>$APP_ID</string>
+            <string>$PAYMENT_WECHAT_APP_ID</string>
           </array>
         </dict>
       </array>
@@ -52,7 +52,7 @@
         <param name="android-package" value="news.chen.yu.ionic.Wechatpay"/>
         <param name="onload" value="true" />
       </feature>
-      <preference name="APP_ID" value="$APP_ID" />
+      <preference name="PAYMENT_WECHAT_APP_ID" value="$PAYMENT_WECHAT_APP_ID" />
     </config-file>
     <config-file target="AndroidManifest.xml" parent="/manifest/application">
       <activity android:name=".wxapi.WXPayEntryActivity" android:exported="true" android:launchMode="singleTop"/>

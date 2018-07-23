@@ -3,7 +3,7 @@
 @implementation Wechatpay
 - (void)pluginInitialize
 {
-    self.appId = [[self.commandDelegate settings] objectForKey:@"app_id"];
+    self.appId = [[self.commandDelegate settings] objectForKey:@"payment_wechat_app_id"];
     [WXApi registerApp: self.appId];
 }
 

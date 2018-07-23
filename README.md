@@ -6,11 +6,11 @@
 ## 安装
 
 ```
-cordova plugin add cordova-plugin-payments-wechatpay --variable APP_ID=你的ID --save
+cordova plugin add cordova-plugin-payments-wechatpay --variable PAYMENT_WECHAT_APP_ID=你的ID --save
 ```
 或
 ```
-ionic cordova plugin add cordova-plugin-payments-wechatpay --variable APP_ID=你的ID
+ionic cordova plugin add cordova-plugin-payments-wechatpay --variable PAYMENT_WECHAT_APP_ID=你的ID
 ```
 
 > 相关依赖
